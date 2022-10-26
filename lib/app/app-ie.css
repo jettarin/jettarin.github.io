@@ -1,0 +1,53 @@
+.gritter-item-wrapper {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EA323232',
+		endColorstr='#EA323232', GradientType=0 ) !important
+}
+
+.gritter-item-wrapper.gritter-info {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EA315185',
+		endColorstr='#EA315185', GradientType=0 ) !important
+}
+
+.gritter-item-wrapper.gritter-error {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EA992812',
+		endColorstr='#EA992812', GradientType=0 ) !important
+}
+
+.gritter-item-wrapper.gritter-success {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EA59834B',
+		endColorstr='#EA59834B', GradientType=0 ) !important
+}
+
+.gritter-item-wrapper.gritter-warning {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EABE701F',
+		endColorstr='#EABE701F', GradientType=0 ) !important
+}
+
+.gritter-item-wrapper.gritter-light {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2F5F5F5',
+		endColorstr='#F2F5F5F5', GradientType=0 ) !important
+}
+
+.gritter-info.gritter-light {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2E8F2FF',
+		endColorstr='#F2E8F2FF', GradientType=0 ) !important
+}
+
+.gritter-error.gritter-light {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2FFEBEB',
+		endColorstr='#F2FFEBEB', GradientType=0 ) !important
+}
+
+.gritter-success.gritter-light {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2EFFAE3',
+		endColorstr='#F2EFFAE3', GradientType=0 ) !important
+}
+
+.gritter-warning.gritter-light {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2FCF8E3',
+		endColorstr='#F2FCF8E3', GradientType=0 ) !important
+}
+
+.input-group-btn >.btn {
+	height: 25px;
+}

@@ -1,0 +1,218 @@
+<div class="page-content-wrapper py-3">
+    <!-- Add New Contact -->
+    <div class="add-new-contact-wrap"><a class="shadow" href="#" data-bs-toggle="modal"
+            data-bs-target="#addnewjobdep"><i class="bi bi-plus-lg"></i></a></div>
+    <div class="container">
+        <div class="card mb-2">
+            <div class="card-body p-2">
+                <div class="chat-search-box">
+                    <form action="#">
+                        <div class="input-group"><span class="input-group-text" id="searchbox"><i
+                                    class="bi bi-search"></i></span>
+                            <input class="form-control" type="search" placeholder="Search users or messages"
+                                data-ng-model="tell" aria-describedby="searchbox" my-enter="getCostCenterByTell(tell)">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- User Status Slide -->
+        <div class="chat-user-status-slides-wrapper">
+            <div class="tns-outer" id="tns1-ow">
+                <div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">slide <span
+                        class="current">24 to 33</span> of 12</div>
+                <div id="tns1-mw" class="tns-ovh">
+                    <div class="tns-inner" id="tns1-iw">
+                        <div class="chat-user-status-slides mb-2  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
+                            id="tns1" style="transform: translate3d(-0%, 0px, 0px); transition-duration: 0s;">
+
+
+
+                            <!-- Single Status Slide -->
+
+                            <!-- Single Status Slide -->
+
+                            <!-- Single Status Slide -->
+                            <div class="tns-item tns-slide-active" id="tns1-item6" data-ng-repeat="d in depList"
+                                data-ng-click="newjob(d)" style="padding: 10px;">
+                                <div class="user-status-slide">
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#addnewjob">
+                                        <img src="img/bg-img/user2.png" alt="">
+                                        <div class="active-status"></div>
+                                        <p class="mb-0 mt-2 text-truncate">{{d.Cost_name}}</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Single Status Slide -->
+                            <div class="tns-item tns-slide-active" id="tns1-item7" style="padding: 10px;">
+                                <div class="user-status-slide">
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#addnewcontact">
+                                        <img src="img/bg-img/user1.png" alt="">
+                                        <div class="active-status"></div>
+                                        <p class="mb-0 mt-2 text-truncate">New</p>
+                                    </a>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Element Heading -->
+        <div class="element-heading">
+            <h6 class="ps-1">Recent Job</h6>
+        </div>
+        <!-- Chat User List -->
+        <ul class="ps-0 chat-user-list" data-ng-repeat="j in jobList">
+            <!-- Single Chat User -->
+            <li class="p-3 chat-unread">
+                <a class="d-flex" href="page-chat.html">
+                    <!-- Thumbnail -->
+                    <div class="chat-user-thumbnail me-3 shadow"><img class="img-circle" src="img/bg-img/user1.png"
+                            alt=""><span class="active-status"></span></div>
+                    <!-- Info -->
+                    <div class="chat-user-info">
+                        <h6 class="text-truncate mb-0">{{j.job_header}}</h6>
+                        <div class="last-chat">
+                            <p class="mb-0 text-truncate">officer : {{j.officername}}</p>
+                        </div>
+                        <div class="single-chat-item">
+                            <div class="user-message">
+                                <div class="message-time-status">
+                                    <div class="sent-time">{{j.jobdatetime}}</div>
+                                    <div class="sent-status seen">
+                                        <i class="bi bi-check-lg" aria-hidden="true"></i>
+                                        <span class="badge rounded-pill bg-primary ms-2">{{j.Cost_nickname}}</span>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </a>
+                <!-- Options -->
+                <div class="dropstart chat-options-btn">
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i
+                            class="bi bi-three-dots-vertical"></i></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="bi bi-mic-mute"></i>รับงาน</a></li>
+                        <li><a href="#"><i class="bi bi-slash-circle"></i>ส่งต่อ</a></li>
+                        <li data-ng-click="delete(j.job_id)"><a href=""><i class="bi bi-trash"></i>ลบ</a></li>
+                    </ul>
+                </div>
+            </li>
+            <!-- Single Chat User -->
+
+
+        </ul>
+    </div>
+</div>
+<div class="add-new-contact-modal modal fade px-0" id="addnewjobdep" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="addnewcontactlabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="modal-title" id="addnewcontactlabel">New Job</h6>
+                    <button class="btn btn-close p-1 ms-auto me-0" type="button" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <form action="">
+                    <div class="form-group">
+                        <label class="form-label" for="defaultSelectLg">Select Department</label>
+                        <select class="form-control input-xs" data-ui-select2="{'containerCssClass': 'required'}"
+                            data-ng-model="depid">
+                            <option></option>
+                            <option data-ng-repeat="d in departmentList" value="{{d.Cost_SKTHM}}">
+                                {{d.Cost_name}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3"><span class="input-group-text" id="to">Job</span>
+                        <input class="form-control" type="text" placeholder="" data-ng-model="jobheader"
+                            aria-label="Username" aria-describedby="to">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">Job Desc</label>
+                        <textarea class="form-control" id="message" data-ng-model="jobdesc" name="textarea" cols="3"
+                            rows="5" placeholder=""></textarea>
+                    </div>
+                    <button class="btn btn-primary w-100" type="submit" data-ng-click="createJob()"
+                        data-bs-dismiss="modal" aria-label="Close">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="add-new-contact-modal modal fade px-0" id="addnewjob" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="addnewcontactlabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="modal-title" id="addnewcontactlabel">New Job</h6>
+                    <button class="btn btn-close p-1 ms-auto me-0" type="button" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <form action="">
+                    <div class="input-group mb-3"><span class="input-group-text" id="to">Job</span>
+                        <input class="form-control" type="text" placeholder="" data-ng-model="jobheader"
+                            aria-label="Username" aria-describedby="to">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">Job Desc</label>
+                        <textarea class="form-control" id="message" data-ng-model="jobdesc" name="textarea" cols="3"
+                            rows="5" placeholder=""></textarea>
+                    </div>
+                    <button class="btn btn-primary w-100" type="submit" data-ng-click="createJob()"
+                        data-bs-dismiss="modal" aria-label="Close">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="add-new-contact-modal modal fade px-0" id="addnewcontact" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="addnewcontactlabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="modal-title" id="addnewcontactlabel">New Contact</h6>
+                    <button class="btn btn-close p-1 ms-auto me-0" type="button" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <form action="">
+
+                    <div class="input-group mb-3"><span class="input-group-text" id="to">Department Phone Number</span>
+                        <input class="form-control" type="text" placeholder="" data-ng-model="phonenumber"
+                            aria-label="Username" aria-describedby="to">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="defaultSelectLg">Select Department</label>
+                        <select class="form-control input-xs" data-ui-select2="{'containerCssClass': 'required'}"
+                            data-ng-model="costid">
+                            <option></option>
+                            <option data-ng-repeat="d in departmentList" value="{{d.Cost_id}}">
+                                {{d.Cost_name}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary w-100" type="submit" data-ng-click="updatePhoneNumber()"
+                        data-bs-dismiss="modal" aria-label="Close">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
